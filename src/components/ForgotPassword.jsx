@@ -16,7 +16,7 @@ function ForgotPassword() {
 
     try {
       const res = await axios.post(
-        "https://password-reset-flow-backend-pfkn.onrender.com/api/forgot-password",
+        "https://password-reset-backend-hr4t.onrender.com/api/forgot-password",
         { email }
       );
       setMessage(res.data.message);

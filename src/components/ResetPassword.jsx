@@ -20,7 +20,7 @@ function ResetPassword() {
 
     try {
       const res = await axios.post(
-        "https://password-reset-flow-backend-pfkn.onrender.com/api/reset-password",
+        "https://password-reset-backend-hr4t.onrender.com/api/reset-password",
         { token, newPassword }
       );
       setMessage(res.data.message);

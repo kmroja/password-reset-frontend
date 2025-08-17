@@ -14,7 +14,7 @@ function Login() {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "https://password-reset-flow-backend-pfkn.onrender.com/api/login",
+        "https://password-reset-backend-hr4t.onrender.com/api/login",
         { email, password }
       );
       setMsg(res.data.message);

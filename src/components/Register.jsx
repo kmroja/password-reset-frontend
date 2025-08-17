@@ -17,7 +17,7 @@ function Register() {
 
     try {
       const res = await axios.post(
-        "https://password-reset-flow-backend-pfkn.onrender.com/api/register",
+        "https://password-reset-backend-hr4t.onrender.com/api/register",
         { email, password }
       );
       setMessage(res.data.message);

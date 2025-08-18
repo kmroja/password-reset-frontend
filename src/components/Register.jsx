@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { FaUserPlus } from "react-icons/fa";
+import { useNavigate } from "react-router-dom"; // 👈 Import navigate
 import AuthLayout from "./AuthLayout";
 import registerHeader from "../assets/login-header.jpg"; // add an image
 
@@ -9,6 +10,7 @@ function Register() {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate(); // 👈 Initialize navigate
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -21,6 +23,11 @@ function Register() {
         { email, password }
       );
       setMessage(res.data.message);
+
+      // 👇 Redirect to login after 2 seconds
+      setTimeout(() => {
+        navigate("/login");
+      }, 2000);
     } catch (err) {
       setError(err.response?.data?.message || "Server error");
     }

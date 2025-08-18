@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom"; // 👈 Import Link
 import AuthLayout from "./AuthLayout";
-import loginHeader from "../assets/login-header.jpg"; // 👈 Add your image here
+import loginHeader from "../assets/login-header.jpg"; // 👈 Your image
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -20,7 +20,7 @@ function Login() {
       setMsg(res.data.message);
     } catch (err) {
       if (err.response?.status === 404) {
-        navigate("/register");
+        navigate("/register"); // 👈 Redirect to Register if user not found
       } else {
         setMsg(err.response?.data?.message || "Error");
       }
@@ -62,9 +62,19 @@ function Login() {
             required
           />
           <button className="btn btn-primary w-100 py-2">Login</button>
+
           <p className="mt-3 text-center">
             <a href="/forgot-password">Forgot Password?</a>
           </p>
+
+          {/* 👇 Register Link */}
+          <p className="mt-2 text-center">
+            Don’t have an account?{" "}
+            <Link to="/register" className="text-decoration-none">
+              Register here
+            </Link>
+          </p>
+
           {msg && <div className="alert alert-info mt-3">{msg}</div>}
         </form>
       </div>

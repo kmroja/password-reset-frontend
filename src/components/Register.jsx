@@ -26,7 +26,7 @@ function Register() {
 
       // 👇 Redirect to login after 2 seconds
       setTimeout(() => {
-        navigate("/login");
+        navigate("/");
       }, 2000);
     } catch (err) {
       setError(err.response?.data?.message || "Server error");
